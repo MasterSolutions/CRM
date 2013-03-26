@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_soc" value="name:codsocietate;datatype:int,name:denumire;datatype:string,name:adresa;datatype:string,name:cui;datatype:string,name:regcom;datatype:string,name:profil;datatype:string,name:email;datatype:string,name:contact;datatype:string,name:functia;datatype:string,name:telefon;datatype:string,name:emailcontact;datatype:string,name:contactat;datatype:string,name:observatii;datatype:string" />
+	<infoitem key="UD_get_societati" value="name:codsocietate;datatype:int,name:denumire;datatype:string,name:adresa;datatype:string,name:cui;datatype:string,name:regcom;datatype:string,name:profil;datatype:string,name:email;datatype:string,name:contact;datatype:string,name:functia;datatype:string,name:telefon;datatype:string,name:emailcontact;datatype:string,name:contactat;datatype:string,name:observatii;datatype:string" />
+	<infoitem key="UD_get_societatiietati" value="name:codsocietate;datatype:int,name:denumire;datatype:string,name:adresa;datatype:string,name:cui;datatype:string,name:regcom;datatype:string,name:profil;datatype:string,name:email;datatype:string,name:contact;datatype:string,name:functia;datatype:string,name:telefon;datatype:string,name:emailcontact;datatype:string,name:contactat;datatype:string,name:observatii;datatype:string" />
+</info>

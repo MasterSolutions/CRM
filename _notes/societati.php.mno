@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:codsocietate;datatype:int,name:denumire;datatype:string,name:adresa;datatype:string,name:cui;datatype:string,name:regcom;datatype:string,name:profil;datatype:string,name:email;datatype:string,name:contact;datatype:string,name:functia;datatype:string,name:telefon;datatype:string,name:emailcontact;datatype:string,name:contactat;datatype:string,name:observatii;datatype:string" />
+	<infoitem key="UD_societati" value="name:codsocietate;datatype:int,name:denumire;datatype:string,name:adresa;datatype:string,name:cui;datatype:string,name:regcom;datatype:string,name:profil;datatype:string,name:email;datatype:string,name:contact;datatype:string,name:functia;datatype:string,name:telefon;datatype:string,name:emailcontact;datatype:string,name:contactat;datatype:string,name:observatii;datatype:string,name:client;datatype:int,name:utilizator;datatype:string,name:parola;datatype:string" />
+	<infoitem key="UD_contact" value="name:cod;datatype:int,name:nume;datatype:string,name:prenume;datatype:string,name:functie;datatype:string,name:telefon;datatype:string,name:mail;datatype:string" />
+	<infoitem key="UD_persoanacontact" value="name:cod;datatype:int,name:nume;datatype:string,name:prenume;datatype:string,name:functie;datatype:string,name:telefon;datatype:string,name:mail;datatype:string" />
+</info>

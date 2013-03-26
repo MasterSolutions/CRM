@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_societati" value="name:codsocietate;datatype:int,name:nume;datatype:string,name:adresa;datatype:int,name:persoana contact;datatype:int" />
+	<infoitem key="UD_contact" value="name:cod;datatype:int,name:nume;datatype:string,name:prenume;datatype:string,name:functie;datatype:string,name:telefon;datatype:string,name:mail;datatype:string" />
+</info>

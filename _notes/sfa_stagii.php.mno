@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_stagii" value="name:codsfae;datatype:int,name:denumireetapa;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_sfa_etape" value="name:codsfae;datatype:int,name:denumireetapa;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_Recordset1" value="name:codsfa;datatype:int,name:codsocietate;datatype:int,name:solutie;datatype:string,name:valoare;datatype:int,name:data;datatype:date,name:comentariu;datatype:string,name:etapa;datatype:string" />
+	<infoitem key="UD_sfa_stagii" value="name:codsfae;datatype:int,name:denumireetapa;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_sfa_etape_denumire" value="name:codsfae;datatype:int,name:denumireetapa;datatype:string,name:ordine;datatype:int" />
+</info>

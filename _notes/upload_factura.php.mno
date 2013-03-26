@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_upload_facturi" value="name:codsocietate;datatype:int,name:denumire;datatype:string,name:email;datatype:string" />
+	<infoitem key="UD_test" value="name:codsocietate;datatype:int,name:denumire;datatype:string" />
+</info>

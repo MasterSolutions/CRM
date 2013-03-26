@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_LiveData_params" value="1" />
+	<infoitem key="UD_LiveData_param0" value="recordID=1" />
+	<infoitem key="UD_DetailRS1" value="name:codsfae;datatype:int,name:denumire;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_detalii_etape" value="name:codsfae;datatype:int,name:denumire;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_detalii_etape_count" value="name:codsfae;datatype:int" />
+	<infoitem key="UD_Recordset1" value="name:codsfae;datatype:int,name:denumire;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_count" value="name:codsfae;datatype:int" />
+</info>
