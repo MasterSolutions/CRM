@@ -1,5 +1,4 @@
 <?php require_once('Connections/conexiune_db.php'); ?>
-<?php require_once('meniu.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -87,7 +86,7 @@ $queryString_societati = sprintf("&totalRows_societati=%d%s", $totalRows_societa
 </head>
 
 <body>
-
+<?php require_once('meniu.php'); ?>
 <script type="text/javascript">
 // BeginOAWidget_Instance_2586523: #dataTable
 

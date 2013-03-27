@@ -94,6 +94,16 @@ if (isset($_POST['utilizator'])) {
   GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $conexiune_db) or die(mysql_error());
+    // Interogare baza de date pentru definirea variabilei de sesiune COD UTILIZATOR
+  $query_societate_user = mysql_query("SELECT coduser FROM utilizatori WHERE utilizator='".$loginUsername."' AND parola='".$password."'");
+            while ($rows = mysql_fetch_array($query_societate_user))
+   {
+   $_SESSION['cod_user'] = $rows['coduser'];
+   //Definire variabila de sesiune pentru limba
+   $query_societate_user_setari = mysql_query("SELECT * FROM utilizatori_config WHERE cod_user='".$rows['coduser']."'");
+            while ($rows2 = mysql_fetch_array($query_societate_user_setari))
+   $_SESSION['coduser_lang'] = $rows2['lang'];
+   }
   $loginFoundUser = mysql_num_rows($LoginRS);
   if ($loginFoundUser) {
     

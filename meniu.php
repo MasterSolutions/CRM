@@ -53,7 +53,7 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 <body>
 <div class="info-top">
 <?php
-echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] ."</span><p>";
+echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] . " Limba:" .$_SESSION['coduser_lang'] . "</span><p>";
 ?>
 </div>
 <?php
@@ -101,10 +101,18 @@ echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] 
 					'link'		=> 	'#',
 					'show_condition'=>	TRUE,
 					'parent'	=>	0
+				),	
+		6 =>	array
+				(
+					'text'		=> 	'Documente',
+					'class'		=> 	'sfa',
+					'link'		=> 	'../crm/manager_doc.php',
+					'show_condition'=>	TRUE,
+					'parent'	=>	0
 				),		
 				
 
-		6 =>	array
+		7 =>	array
 				(
 					'text'		=> 	'Configurari',
 					'class'		=> 	'configurari',

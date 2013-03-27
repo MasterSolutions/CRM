@@ -10,7 +10,7 @@ a,ins{text-decoration:none;}
 img			{border: none;}
 a			{color:#006699;text-decoration:none;}
 a:hover			{color:#333;border-bottom: solid 1px #333;text-decoration:none;}
-body			{font:0.8em/145% 'Trebuchet MS',helvetica,arial,verdana;color:#333;line-height:1.5; background: #CCCCCC;}
+body			{font:0.8em/145% 'Trebuchet MS',helvetica,arial,verdana;color:#333;line-height:1.5; }
 h2		 	{letter-spacing:-1px;font-family:helvetica,arial,verdana;margin:0 0 .5em;color:#000; border-bottom:1px solid #ccc;font-weight:bold;}
 h2 			{font-size:140%;color:#666;}
 .clear			{clear:both}

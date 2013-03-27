@@ -53,6 +53,6 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 
 <body>
 <?php
-echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] ."</span><p>";
+echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] . " Limba:" .$_SESSION['codsoc_lang'] . "</span><p>";
 ?></body>
 </html>

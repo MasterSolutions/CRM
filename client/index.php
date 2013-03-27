@@ -54,10 +54,15 @@ if (isset($_POST['utilizator'])) {
   $LoginRS__query=sprintf("SELECT utilizator, parola, permisiuni FROM utilizatori WHERE utilizator=%s AND parola=%s",
   GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
   $LoginRS = mysql_query($LoginRS__query, $conexiune_db) or die(mysql_error());
+  // Interogare baza de date pentru definirea variabilei de sesiune COD SOCIETATE UTILIZATOR
   $query_societate_user = mysql_query("SELECT codsocietate FROM utilizatori WHERE utilizator='".$loginUsername."' AND parola='".$password."'");
             while ($rows = mysql_fetch_array($query_societate_user))
    {
    $_SESSION['codsoc_user'] = $rows['codsocietate'];
+   //Definire variabila de sesiune pentru limba
+   $query_societate_user_setari = mysql_query("SELECT * FROM utilizatori_config WHERE cod_user='".$rows['coduser']."'");
+            while ($rows2 = mysql_fetch_array($query_societate_user_setari))
+   $_SESSION['codsoc_lang'] = $rows2['lang'];
    }
   $loginFoundUser = mysql_num_rows($LoginRS);
   if ($loginFoundUser) {
