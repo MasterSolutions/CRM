@@ -390,3 +390,5 @@
 [2013-03-27 07:45:28] ::1 an anonymous user accessed dir ./Doc/ (Opera/9.80 (Windows NT 6.1) Presto/2.12.388 Version/12.14)
 [2013-03-27 07:47:12] ::1 an anonymous user accessed dir ./Doc/ (Opera/9.80 (Windows NT 6.1) Presto/2.12.388 Version/12.14)
 [2013-03-27 07:48:16] ::1 an anonymous user accessed dir ./Doc/ (Opera/9.80 (Windows NT 6.1) Presto/2.12.388 Version/12.14)
+[2013-03-27 08:35:28] 127.0.0.1 an anonymous user accessed dir ./Doc/ (Opera/9.80 (Windows NT 6.1) Presto/2.12.388 Version/12.14)
+[2013-03-27 08:35:56] 127.0.0.1 an anonymous user accessed dir ./Doc/ (Opera/9.80 (Windows NT 6.1) Presto/2.12.388 Version/12.14)
