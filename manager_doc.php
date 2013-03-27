@@ -18,7 +18,7 @@ $_START_TIME = microtime(TRUE);
 // Choose a language. See below in the language section for options.
 // Default: $_CONFIG['lang'] = "en";
 //
-$_CONFIG['lang'] = $_SESSION['coduser_lang'];
+$_CONFIG['lang'] = $_SESSION['user_lang'];
 
 //
 // Kuva pildifailidele eelvaated. Vaikimisi: true
@@ -164,7 +164,7 @@ $_CONFIG['hidden_dirs'] = array();
 // Filenames that will be hidden from the list.
 // Default: $_CONFIG['hidden_files'] = array(".ftpquota", "index.php", "index.php~", ".htaccess", ".htpasswd");
 //
-$_CONFIG['hidden_files'] = array("manager_doc_log.txt",".ftpquota", "index.php", "index.php~", ".htaccess", ".htpasswd");
+$_CONFIG['hidden_files'] = array("index.html",".ftpquota", "index.php", "index.php~", ".htaccess", ".htpasswd");
 
 //
 // Määra kas lehe nägemiseks peab sisse logima.
@@ -1784,19 +1784,19 @@ class GateKeeper
 	}
 	
 	public static function isUploadAllowed(){
-		if(EncodeExplorer::getConfig("upload_enable") == true && GateKeeper::isUserLoggedIn() == true && GateKeeper::getUserStatus() == "admin")
+		if(EncodeExplorer::getConfig("upload_enable") == true && $_SESSION['user_rol']==1)
 			return true;
 		return false;
 	}
 	
 	public static function isNewdirAllowed(){
-		if(EncodeExplorer::getConfig("newdir_enable") == true && GateKeeper::isUserLoggedIn() == true && GateKeeper::getUserStatus() == "admin")
+		if(EncodeExplorer::getConfig("newdir_enable") == true && $_SESSION['user_rol']==1)
 			return true;
 		return false;
 	}
-	
+
 	public static function isDeleteAllowed(){
-		if(EncodeExplorer::getConfig("delete_enable") == true && GateKeeper::isUserLoggedIn() == true && GateKeeper::getUserStatus() == "admin")
+		if(EncodeExplorer::getConfig("delete_enable") == true && $_SESSION['user_rol']==1)
 			return true;
 		return false;
 	}
@@ -1966,19 +1966,19 @@ class FileManager
 	function run($location)
 	{
 		if(isset($_POST['userdir']) && strlen($_POST['userdir']) > 0){
-			if($location->uploadAllowed() && GateKeeper::isUserLoggedIn() && GateKeeper::isAccessAllowed() && GateKeeper::isNewdirAllowed()){
+			if($location->uploadAllowed() && GateKeeper::isAccessAllowed() && GateKeeper::isNewdirAllowed()){
 				$this->newFolder($location, $_POST['userdir']);
 			}
 		}
 			
 		if(isset($_FILES['userfile']['name']) && strlen($_FILES['userfile']['name']) > 0){
-			if($location->uploadAllowed() && GateKeeper::isUserLoggedIn() && GateKeeper::isAccessAllowed() && GateKeeper::isUploadAllowed()){
+			if($location->uploadAllowed() && GateKeeper::isAccessAllowed() && GateKeeper::isUploadAllowed()){
 				$this->uploadFile($location, $_FILES['userfile']);
 			}
 		}
 		
 		if(isset($_GET['del'])){
-			if(GateKeeper::isUserLoggedIn() && GateKeeper::isAccessAllowed() && GateKeeper::isDeleteAllowed()){
+			if(GateKeeper::isAccessAllowed() && GateKeeper::isDeleteAllowed()){
 				$split_path = Location::splitPath($_GET['del']);
 				$path = "";
 				for($i = 0; $i < count($split_path); $i++){

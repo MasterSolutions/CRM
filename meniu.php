@@ -1,6 +1,8 @@
 <?php
 if (!isset($_SESSION)) {
   session_start();
+  Print_r ($_SESSION);
+
 }
 $MM_authorizedUsers = "1";
 $MM_donotCheckaccess = "false";
@@ -53,7 +55,7 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 <body>
 <div class="info-top">
 <?php
-echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] . " Limba:" .$_SESSION['coduser_lang'] . "</span><p>";
+echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] . " Limba:" .$_SESSION['user_lang'] . "</span><p>";
 ?>
 </div>
 <?php
