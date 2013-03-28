@@ -5,6 +5,7 @@
 *.pydevproject
 .project
 .metadata
+manager_doc_log.txt
 Connections/
 bin/
 tmp/

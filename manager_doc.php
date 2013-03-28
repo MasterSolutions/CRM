@@ -1717,13 +1717,7 @@ class GateKeeper
 			echo "";				
 		else
 			return;
-			
-		if(isset($_GET['logout']))
-		{
-			$_SESSION['ee_user_name'] = null;
-			$_SESSION['ee_user_pass'] = null;
-		}
-			
+	
 		if(isset($_POST['user_pass']) && strlen($_POST['user_pass']) > 0)
 		{
 			if(GateKeeper::isUser((isset($_POST['user_name'])?$_POST['user_name']:""), $_POST['user_pass']))
@@ -1768,9 +1762,8 @@ class GateKeeper
 	
 	public static function isUserLoggedIn()
 	{
-		if(isset($_SESSION['ee_user_name']) && isset($_SESSION['ee_user_pass']))
+		if(isset($_SESSION['MM_Username']))
 		{
-			if(GateKeeper::isUser($_SESSION['ee_user_name'], $_SESSION['ee_user_pass']))
 				return true;
 		}
 		return false;
@@ -1784,19 +1777,19 @@ class GateKeeper
 	}
 	
 	public static function isUploadAllowed(){
-		if(EncodeExplorer::getConfig("upload_enable") == true && $_SESSION['user_rol']==1)
+		if(EncodeExplorer::getConfig("upload_enable") == true && GateKeeper::isUserLoggedIn() == true && $_SESSION['user_rol']==1)
 			return true;
 		return false;
 	}
 	
 	public static function isNewdirAllowed(){
-		if(EncodeExplorer::getConfig("newdir_enable") == true && $_SESSION['user_rol']==1)
+		if(EncodeExplorer::getConfig("newdir_enable") == true && GateKeeper::isUserLoggedIn() == true &&  $_SESSION['user_rol']==1)
 			return true;
 		return false;
 	}
 
 	public static function isDeleteAllowed(){
-		if(EncodeExplorer::getConfig("delete_enable") == true && $_SESSION['user_rol']==1)
+		if(EncodeExplorer::getConfig("delete_enable") == true && GateKeeper::isUserLoggedIn() == true && $_SESSION['user_rol']==1)
 			return true;
 		return false;
 	}
@@ -1813,8 +1806,8 @@ class GateKeeper
 	
 	public static function getUserName()
 	{
-		if(GateKeeper::isUserLoggedIn() == true && isset($_SESSION['ee_user_name']) && strlen($_SESSION['ee_user_name']) > 0)
-			return $_SESSION['ee_user_name'];
+		if(GateKeeper::isUserLoggedIn() == true && isset($_SESSION['MM_Username']) && strlen($_SESSION['MM_Username']) > 0)
+			return $_SESSION['MM_Username'];
 		if(isset($_SERVER["REMOTE_USER"]) && strlen($_SERVER["REMOTE_USER"]) > 0)
 			return $_SERVER["REMOTE_USER"];
 		if(isset($_SERVER['PHP_AUTH_USER']) && strlen($_SERVER['PHP_AUTH_USER']) > 0)
@@ -2979,8 +2972,6 @@ if(GateKeeper::isAccessAllowed() && $this->location->uploadAllowed() && (GateKee
 <!-- START: Info area -->
 <div id="info">
 <?php
-if(GateKeeper::isUserLoggedIn())
-	print "<a href=\"".$this->makeLink(false, true, null, null, null, "")."\">".$this->getString("log_out")."</a> | ";
 
 if(EncodeExplorer::getConfig("mobile_enabled") == true)
 {
@@ -2997,7 +2988,7 @@ if($this->mobile == false && $this->getConfig("show_load_time") == true)
 	printf($this->getString("page_load_time")." | ", (microtime(TRUE) - $_START_TIME)*1000);
 }
 ?> 
-<a href="http://encode-explorer.siineiolekala.net">Encode Explorer</a>
+<a href="http://encode-explorer.siineiolekala.net">Encode Explorer</a> |
 </div>
 <!-- END: Info area -->
 </body>
