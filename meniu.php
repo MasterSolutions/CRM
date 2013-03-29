@@ -94,41 +94,56 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
  <?php
  echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] . " Limba:" .$_SESSION['user_lang'] . "</span><p>";
  ?>
-  </div>
+ </div>
  <div class="main_menu">
-    <ul id="container_meniu">
+    <ul id="nav">
         <?php 
 		mysql_select_db($database_conexiune_db, $conexiune_db);
         $query_Meniu = "SELECT * FROM meniu where tip=0";
         $Meniu = mysql_query($query_Meniu, $conexiune_db) or die(mysql_error());
 		while ($rowMeniu = mysql_fetch_array($Meniu))
-      {
-       $id_meniu=$rowMeniu['id_meniu'];
-	   $nume_meniu=$rowMeniu['nume_meniu'];
-	   $adresa_meniu=$rowMeniu['adresa']; 
+        {
+        $id_meniu=$rowMeniu['id_meniu'];
+	    $nume_meniu=$rowMeniu['nume_meniu'];
+	    $adresa_meniu=$rowMeniu['adresa']; 
     ?>
-              <li id="meniu"><a href="#"><?php echo $nume_meniu; ?></a>
-                                            <ul id="submeniu"><?php 
-											
-			 $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu";
-			 $SubMeniu = mysql_query($query_SubMeniu, $conexiune_db) or die(mysql_error());
-		     while ($rowSubMeniu = mysql_fetch_array($SubMeniu))
-               {
-		$nume_submeniu=$rowSubMeniu['nume_meniu'];		
-		$adresa_submeniu=$rowSubMeniu['adresa']  
-            ?> 
-                                              <li><a href=<?php echo '../crm/'.$adresa_submeniu ?>><?php echo $nume_submeniu; ?></a></li>  
-             <?php }  ?>
-                                           </ul>
+       <li><a href="#"><?php echo $nume_meniu; ?></a>
+              <ul><?php 
+			  $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu";
+			  $SubMeniu = mysql_query($query_SubMeniu, $conexiune_db) or die(mysql_error());
+		      while ($rowSubMeniu = mysql_fetch_array($SubMeniu))
+              {
+			  $id_submeniu=$rowSubMeniu['id_meniu'];
+		      $nume_submeniu=$rowSubMeniu['nume_meniu'];		
+		      $adresa_submeniu=$rowSubMeniu['adresa'];  
+    ?> 
+             <li><a href=<?php echo '../crm/'.$adresa_submeniu ?>><?php echo $nume_submeniu; ?></a> 
+
+			                   <ul><?php 
+			                   $query_SubMeniu1 = "SELECT * FROM meniu where tip=2 and parinte=$id_submeniu";
+			                   $SubMeniu1 = mysql_query($query_SubMeniu1, $conexiune_db) or die(mysql_error());
+		                       while ($rowSubMeniu1 = mysql_fetch_array($SubMeniu1))
+							   {
+                               $nume_submeniu1=$rowSubMeniu1['nume_meniu'];		
+		                       $adresa_submeniu1=$rowSubMeniu1['adresa'] ; 
+                               ?>
+							   
+							   <li><a href=<?php echo '../crm/'.$adresa_submeniu1 ?>><?php echo $nume_submeniu1; ?></a>
+							   <?php }  ?>
+							   </ul>
+
+
+			 
+          <?php }  ?>
+            </li>
+            </ul>
       </li>
- 
- 
-<?php
-}
-?>
-  </ul>
+  <?php } ?>
+    </ul>
  </div>
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>	
+<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>
-
