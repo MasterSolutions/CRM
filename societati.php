@@ -60,6 +60,7 @@ $queryString_societati = sprintf("&totalRows_societati=%d%s", $totalRows_societa
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Societati</title>
+<?php require_once('meniu.php'); ?>
 <script src="/crm/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
 <script src="/crm/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="/crm/scripts/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
@@ -86,7 +87,7 @@ $queryString_societati = sprintf("&totalRows_societati=%d%s", $totalRows_societa
 </head>
 
 <body>
-<?php require_once('meniu.php'); ?>
+
 <script type="text/javascript">
 // BeginOAWidget_Instance_2586523: #dataTable
 

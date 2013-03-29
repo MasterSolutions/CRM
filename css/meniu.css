@@ -1,28 +1,11 @@
-body a{outline:none}
-table{border-collapse:collapse;border-spacing:0;}
-fieldset,img,abbr{border:0;}
-address,caption,cite,code,dfn,em,h1,h2,h3,h4,h5,h6,strong,th,var{font-style:normal;font-weight:normal;}
-ul {list-style:none;}
-h1,h2,h3,h4,h5,h6{font-size:1.0em;}
-q:before,q:after{content:'';}
-a,ins{text-decoration:none;}
-*			{margin:0;padding:0;outline:none;}
-img			{border: none;}
-a			{color:#006699;text-decoration:none;}
-a:hover			{color:#333;border-bottom: solid 1px #333;text-decoration:none;}
-body			{font:0.8em/145% 'Trebuchet MS',helvetica,arial,verdana;color:#333;line-height:1.5; }
-h2		 	{letter-spacing:-1px;font-family:helvetica,arial,verdana;margin:0 0 .5em;color:#000; border-bottom:1px solid #ccc;font-weight:bold;}
-h2 			{font-size:140%;color:#666;}
-.clear			{clear:both}
-/* ================================================================ 
-This copyright notice must be untouched at all times.
+#container 
+{
+ width: 100%;
+ margin-left: 0px;
+ margin-right: 0px;
+ height: 55px;
 
-The original version of this stylesheet and the associated (x)html
-is available at http://www.cssplay.co.uk/menus/drop_examples.html
-Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
-This stylesheet and the assocaited (x)html may be modified in any 
-way to fit your requirements.
-=================================================================== */
+}
 /* Header Style */
 .info-top{
 	line-height: 24px;
@@ -32,7 +15,7 @@ way to fit your requirements.
 	z-index: 9999;
 	position: relative;
 	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
-	background: url("../pic/bg.jpg") #FFFFFF;
+	background: url("../images/bg.jpg") #FFFFFF;
 	border-bottom: 1px solid #ABABAB;
 }
 .info-top a{
@@ -50,89 +33,99 @@ way to fit your requirements.
 	color: #F93;
 	font-weight: bold;
 }
-/* commom style for all browsers */
-.container4 {
-text-align:center; background:#eee url(../pic/menu4.gif); height:30px;
-margin:0 0 20px 0; /* for this demo only */
+.main_menu
+{
+ background: url("http://localhost/crm/pic/menu4.gif") #EEEEEE;
+height: 30px;
+margin: 0px 0px 0px;
+text-align: center;
 }
-.menu4 {
-text-align:left; font-family: verdana, sans-serif; position:relative; font-size:0.85em; background:transparent;  height:30px; margin:0 auto;
+#meniu
+{
+ min-width: 120px;
+ line-height: 30px;
 }
-.menu4 ul {
-padding:0; margin:0; list-style-type: none;
-}
-.menu4 ul li {
-float:left; position:relative; z-index:1000;
-}
-.menu4 ul li.catalog {background:transparent url(../pic/articles_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.sfa {background:transparent url(../pic/articles_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.users {background:transparent url(../pic/user.gif) 9px 6px no-repeat;}
-.menu4 ul li.groups {background:transparent url(../pic/users_options_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.configurari {background:transparent url(../pic/site_settings_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.adauga_articol {background:transparent url(../pic/articles_add.gif) 9px 6px no-repeat;}
-.menu4 ul li.categories {background:transparent url(../pic/edit_categories.gif) 9px 6px no-repeat;}
-.menu4 ul li.add_user {background:transparent url(../pic/user_add.gif) 9px 6px no-repeat;}
-.menu4 ul li.sterge {background:transparent url(../pic/delete.gif) 9px 6px no-repeat;}
-.menu4 ul li.vizualizare {background:transparent url(../pic/view_articles.gif) 9px 6px no-repeat;}
-.menu4 ul li.show {background:transparent url(../pic/articles_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.last {background:transparent url(../pic/articles_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.first {background:transparent url(../pic/articles_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.all {background:transparent url(../pic/articles_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.none {background:transparent url(../pic/articles_menu.gif) 9px 6px no-repeat;}
-.menu4 ul li.subsubl {background-image:url(../pic/next.gif);background-repeat: no-repeat;background-position: top right;}
-
-
-.menu4 ul li a, .menu4 ul li a:visited {
-display:block; text-decoration:none; width:70px; height:30px; color:#000; padding-left:30px; line-height:29px;
-}
-* html .menu4 ul li a, .menu4 ul li a:visited {
-width:100px; w\idth:70px;
+#submeniu
+{
+ margin-top: 35px;
+ min-width: 120px;
+ border: 1px solid #000000	;
+ border-right: none;
+ z-index: 9999;
 }
 
-.menu4 ul li ul {
-visibility:hidden; position:absolute; top:0; left:0; height:0; overflow:hidden;
+.main_menu ul
+{
+ padding:0px;
+ margin:0;
+ list-style:none;
+ 
 }
+.main_menu ul li
+{
+ padding:0;
+ margin:0;
+ border-right:1px solid #000000;
+ float:left;
 
-/* fist line style for IE7 and non-IE browsers and the second line for IE5.5 and IE6 */
-.menu4 ul li:hover a,
-.menu4 ul li a:hover {
-color:#c00; text-decoration:none; border:0;
+ 
 }
-.menu4 ul li:hover ul,
-.menu4 ul li a:hover ul {
-visibility:visible; width:170px; height:auto; position:absolute; top:30px; left:-1px; background:#fff; border:1px solid #909; overflow:visible;
+.main_menu ul li a
+{
+ color:#000000;
+ display:block;
+ text-decoration:none;
+ padding:0 25px;
+ line-height: 30px;
 }
-.menu4 ul li:hover ul li a,
-.menu4 ul li a:hover ul li a {
-display:block; background:transparent; text-decoration:none; color:#c00; height:auto; line-height:1.5em; padding:5px 10px 5px 35px; width:170px; w\idth:125px;
+.main_menu ul li a:hover
+{
+ color:#CC0000;
+ height: 30px;
 }
-.menu4 ul li:hover ul li a.drop,
-.menu4 ul li a:hover ul li a.drop {
-display:block; color:#000; height:auto; line-height:1.5em; padding:5px 10px 5px 35px; width:170px; w\idth:125px;
+.main_menu ul li ul
+{
+  display: none;
+  width: auto;
+  position:absolute;
+  top:30px;
+  padding:0px;
+  margin:0px;
 }
-.menu4 ul li:hover ul li ul,
-.menu4 ul li a:hover ul li a ul {
-visibility:hidden; position:absolute; top:0; left:0; height:0; overflow:hidden;
+.main_menu ul li:hover ul
+{
+  display: block;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  
 }
-.menu4 ul li:hover ul li a:hover,
-.menu4 ul li a:hover ul li a:hover {
-color:#00f; text-decoration:underline;
+.main_menu ul li:hover li
+{
+  float: none;
+  list-style:none;
+  margin:0px;
 }
-.menu4 ul li:hover ul li:hover ul,
-.menu4 ul li a:hover ul li a:hover ul {
-visibility:visible; position:absolute; top:0; color:#000; left:166px; height:auto; border:1px solid #909;
-}
-.menu4 ul li:hover ul li:hover ul.left,
-.menu4 ul li a:hover ul li a:hover ul.left {
-left:-166px;
-}
-.menu4 ul li:hover ul li:hover ul li a,
-.menu4 ul li a:hover ul li a:hover ul li a {
-display:block; color:#00f; height:auto; line-height:1.5em; padding:5px 10px 4px 35px; width:170px; w\idth:140px;
-}
-* html .menu4 ul li a:hover ul li a:hover ul li a {padding:4px 10px 4px 35px;}
+.main_menu ul li:hover li
+{
+ background: white;
+ color: #CC0000;
+ display: block;
+ height: auto;
+ line-height: 1.5em;
+ text-decoration: none;
 
-.menu4 ul li:hover ul li:hover ul li:hover a,
-.menu4 ul li a:hover ul li a:hover ul li a:hover {
-color:#000; text-decoration:underline;
+}
+.main_menu ul li:hover li a
+{
+ color: #CC0000;
+ padding:0 20px;
+ display:block;
+ width:170px;
+ height: 30px;
+}
+.main_menu ul li li a:hover
+{
+  color:#000;
+  height: 30px;
 }

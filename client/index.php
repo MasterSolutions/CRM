@@ -55,7 +55,7 @@ if (isset($_POST['utilizator'])) {
   GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
   $LoginRS = mysql_query($LoginRS__query, $conexiune_db) or die(mysql_error());
   // Interogare baza de date pentru definirea variabilei de sesiune COD SOCIETATE UTILIZATOR
-  $query_societate_user = mysql_query("SELECT codsocietate FROM utilizatori WHERE utilizator='".$loginUsername."' AND parola='".$password."'");
+  $query_societate_user = mysql_query("SELECT codsocietate,coduser FROM utilizatori WHERE utilizator='".$loginUsername."' AND parola='".$password."'");
             while ($rows = mysql_fetch_array($query_societate_user))
    {
    $_SESSION['codsoc_user'] = $rows['codsocietate'];

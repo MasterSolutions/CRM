@@ -43,141 +43,92 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
   exit;
 }
 ?>
+<?php require_once('Connections/conexiune_db.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <link href="css/meniu.css" rel="stylesheet" type="text/css" />
 <head>
-	<title>Meniu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Meniu</title>
 </head>
+ 
+<body marginwidth="0" topmargin="0">
 
-<body>
-<div class="info-top">
+<div id="container-menu">
+ <div class="info-top">
+ <?php
+ echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] . " Limba:" .$_SESSION['user_lang'] . "</span><p>";
+ ?>
+  </div>
+ <div class="main_menu">
+    <ul id="container_meniu">
+        <?php 
+		mysql_select_db($database_conexiune_db, $conexiune_db);
+        $query_Meniu = "SELECT * FROM meniu where tip=0";
+        $Meniu = mysql_query($query_Meniu, $conexiune_db) or die(mysql_error());
+		while ($rowMeniu = mysql_fetch_array($Meniu))
+      {
+       $id_meniu=$rowMeniu['id_meniu'];
+	   $nume_meniu=$rowMeniu['nume_meniu'];
+	   $adresa_meniu=$rowMeniu['adresa']; 
+    ?>
+              <li id="meniu"><a href="#"><?php echo $nume_meniu; ?></a>
+                                            <ul id="submeniu"><?php 
+											
+			 $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu";
+			 $SubMeniu = mysql_query($query_SubMeniu, $conexiune_db) or die(mysql_error());
+		     while ($rowSubMeniu = mysql_fetch_array($SubMeniu))
+               {
+		$nume_submeniu=$rowSubMeniu['nume_meniu'];		
+		$adresa_submeniu=$rowSubMeniu['adresa']  
+            ?> 
+                                              <li><a href=<?php echo '../crm/'.$adresa_submeniu ?>><?php echo $nume_submeniu; ?></a></li>  
+             <?php }  ?>
+                                           </ul>
+      </li>
+ 
+ 
 <?php
-echo "Autentificat: ". "<span class=\"utilizator\">" . $_SESSION["MM_Username"] . " Limba:" .$_SESSION['user_lang'] . "</span><p>";
+}
 ?>
+  </ul>
+ </div>
 </div>
-<?php
-	error_reporting ( E_ALL );
-
-	$menu = array 
-	(
-		1 => 	array 
-				(
-					'text'		=> 	'Catalog',
-					'class'		=> 	'catalog',
-					'link'		=> 	'#',
-					'show_condition'=>	TRUE,
-					'parent'	=>	0
-				),
-		2 =>	array
-				(
-					'text'		=> 	'Societati',
-					'class'		=> 	'show',
-					'link'		=> 	'#',
-					'show_condition'=>	TRUE,
-					'parent'	=>	1
-				),
-		3 =>	array
-				(
-					'text'		=> 	'Adauga',
-					'class'		=> 	'adauga_articol',
-					'link'		=> 	'../crm/societati_adauga.php',
-					'show_condition'=>	TRUE,
-					'parent'	=>	2
-				),
-		4 =>	array
-				(
-					'text'		=> 	'Vizualizare',
-					'class'		=> 	'vizualizare',
-					'link'		=> 	'../crm/societati.php',
-					'show_condition'=>	TRUE,
-					'parent'	=>	2
-				),
-				
-		5 =>	array
-				(
-					'text'		=> 	'Sales Force',
-					'class'		=> 	'sfa',
-					'link'		=> 	'#',
-					'show_condition'=>	TRUE,
-					'parent'	=>	0
-				),	
-		6 =>	array
-				(
-					'text'		=> 	'Documente',
-					'class'		=> 	'sfa',
-					'link'		=> 	'../crm/manager_doc.php',
-					'show_condition'=>	TRUE,
-					'parent'	=>	0
-				),		
-				
-
-		7 =>	array
-				(
-					'text'		=> 	'Configurari',
-					'class'		=> 	'configurari',
-					'link'		=> 	'#',
-					'show_condition'=>	TRUE,
-					'parent'	=>	0
-				)
-		
-
-		
-				
-		
-	);	
-
-	function build_menu ( $menu )
-	{
-		$out = '<div class="container4">' . "\n";
-		$out .= '	<div class="menu4">' . "\n";
-		$out .= "\n".'<ul>' . "\n";
-		
-		for ( $i = 1; $i <= count ( $menu ); $i++ )
-		{
-			if ( is_array ( $menu [ $i ] ) ) {//must be by construction but let's keep the errors home
-				if ( $menu [ $i ] [ 'show_condition' ] && $menu [ $i ] [ 'parent' ] == 0 ) {//are we allowed to see this menu?
-					$out .= '<li class="' . $menu [ $i ] [ 'class' ] . '"><a href="' . $menu [ $i ] [ 'link' ] . '">';
-					$out .= $menu [ $i ] [ 'text' ];
-					$out .= '</a>';
-					$out .= get_childs ( $menu, $i );
-					$out .= '</li>' . "\n";
-				}
-			}
-			else {
-				die ( sprintf ( 'menu nr %s must be an array', $i ) );
-			}
-		}
-		
-		$out .= '</ul>'."\n";
-		$out .= "\n\t" . '</div>';
-		return $out . "\n\t" . '</div>';
-	}
-	
-	function get_childs ( $menu, $el_id )
-	{
-		$has_subcats = FALSE;
-		$out = '';
-		$out .= "\n".'	<ul>' . "\n";
-		for ( $i = 1; $i <= count ( $menu ); $i++ )
-		{
-			if ( $menu [ $i ] [ 'show_condition' ] && $menu [ $i ] [ 'parent' ] == $el_id ) {//are we allowed to see this menu?
-				$has_subcats = TRUE;
-				$add_class = ( get_childs ( $menu, $i ) != FALSE ) ? ' subsubl' : '';
-				$out .= '		<li class="' . $menu [ $i ] [ 'class' ] . $add_class . '"><a href="' . $menu [ $i ] [ 'link' ] . '">';
-				$out .= $menu [ $i ] [ 'text' ];
-				$out .= '</a>';
-				$out .= get_childs ( $menu, $i );
-				$out .= '</li>' . "\n";
-			}
-		}
-		$out .= '	</ul>'."\n";
-		return ( $has_subcats ) ? $out : FALSE;
-	}
-
-?>
-	<div style="width:100%;margin:0px auto">
-		<?= build_menu ( $menu ) ?>
-	</div>
 </body>
 </html>
+
