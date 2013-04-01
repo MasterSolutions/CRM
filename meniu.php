@@ -105,6 +105,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
         {
         $id_meniu=$rowMeniu['id_meniu'];
 	    $nume_meniu=$rowMeniu['nume_meniu'];
+		$ico_meniu=$rowMeniu['ico'];
 		if ($rowMeniu['nume_meniu'] == '#') {
         $adresa_meniu = "#";
         } else {
@@ -112,32 +113,34 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 		}
 	     
     ?>
-       <li><a href=<?php echo $adresa_meniu ?>><?php echo $nume_meniu; ?></a>
+       <li><a href=<?php echo $adresa_meniu ?>><span><img src="pic/<?php echo $ico_meniu ?>" /><?php echo $nume_meniu; ?></span></a>
               <ul><?php 
 			  $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu ORDER BY ordonare ASC";
 			  $SubMeniu = mysql_query($query_SubMeniu, $conexiune_db) or die(mysql_error());
 		      while ($rowSubMeniu = mysql_fetch_array($SubMeniu))
               {
 			  $id_submeniu=$rowSubMeniu['id_meniu'];
-		      $nume_submeniu=$rowSubMeniu['nume_meniu'];		
+		      $nume_submeniu=$rowSubMeniu['nume_meniu'];
+			  $ico_submeniu=$rowSubMeniu['ico'];		
 			  if ($rowSubMeniu['nume_meniu'] == '#') {
               $adresa_submeniu = "#";
               } else {
 		      $adresa_submeniu=$rowSubMeniu['adresa'];
 		      }
     ?> 
-             <li><a href=<?php echo $adresa_submeniu ?>><?php echo $nume_submeniu; ?></a> 
+             <li><a href=<?php echo $adresa_submeniu ?>><span><img src="pic/<?php echo $ico_submeniu ?>" /><?php echo $nume_submeniu; ?></span></a> 
 
 			                   <ul><?php 
 			                   $query_SubMeniu1 = "SELECT * FROM meniu where tip=2 and parinte=$id_submeniu ORDER BY ordonare ASC";
 			                   $SubMeniu1 = mysql_query($query_SubMeniu1, $conexiune_db) or die(mysql_error());
 		                       while ($rowSubMeniu1 = mysql_fetch_array($SubMeniu1))
 							   {
-                               $nume_submeniu1=$rowSubMeniu1['nume_meniu'];		
+                               $nume_submeniu1=$rowSubMeniu1['nume_meniu'];	
+							   $ico_submeniu1=$rowSubMeniu1['ico'];	
 		                       $adresa_submeniu1=$rowSubMeniu1['adresa'] ; 
                                ?>
 							   
-							   <li><a href=<?php echo '../crm/'.$adresa_submeniu1 ?>><?php echo $nume_submeniu1; ?></a>
+							   <li><a href=<?php echo '../crm/'.$adresa_submeniu1 ?>><span><img src="pic/<?php echo $ico_submeniu1 ?>" /><?php echo $nume_submeniu1; ?></span></a>
 							   <?php }  ?>
 							   </ul>
 

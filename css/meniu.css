@@ -3,7 +3,7 @@
  width: 100%;
  margin-left: 0px;
  margin-right: 0px;
- height: 75px;
+ height: 82px;
 
 }
 /* Header Style */
@@ -15,7 +15,7 @@
 	z-index: 9999;
 	position: relative;
 	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
-	background: url("../images/bg.jpg") #FFFFFF;
+	background: url("../pic/bg.jpg") #FFFFFF;
 	border-bottom: 1px solid #ABABAB;
 }
 .info-top a{
@@ -35,8 +35,8 @@
 }
 .main_menu
 {
- background: url("http://localhost/crm/pic/menu4.gif") #EEEEEE;
-height: 52px;
+background: linear-gradient(to bottom, #F5F5F5, #C4C4C4) transparent;
+height: 58px;
 margin: 0px 0px 0px;
 text-align: center;
 background-size: 100%;
@@ -50,7 +50,18 @@ background-size: 100%;
  border: 1px solid white;
  border-bottom: none;
 }
-
+#nav img{
+border: medium none currentColor;
+margin-right: 8px;
+vertical-align: middle;
+}
+ul#nav span {
+background-position: 100% 50%;
+background-repeat: no-repeat;
+display: block;
+overflow: visible;
+padding-right: 0px;
+}
 #nav li a, #nav li {
  float: left;
 }
