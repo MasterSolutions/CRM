@@ -99,28 +99,37 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
     <ul id="nav">
         <?php 
 		mysql_select_db($database_conexiune_db, $conexiune_db);
-        $query_Meniu = "SELECT * FROM meniu where tip=0";
+        $query_Meniu = "SELECT * FROM meniu where tip=0 ORDER BY ordonare ASC";
         $Meniu = mysql_query($query_Meniu, $conexiune_db) or die(mysql_error());
 		while ($rowMeniu = mysql_fetch_array($Meniu))
         {
         $id_meniu=$rowMeniu['id_meniu'];
 	    $nume_meniu=$rowMeniu['nume_meniu'];
-	    $adresa_meniu=$rowMeniu['adresa']; 
+		if ($rowMeniu['nume_meniu'] == '#') {
+        $adresa_meniu = "#";
+        } else {
+		$adresa_meniu=$rowMeniu['adresa'];
+		}
+	     
     ?>
-       <li><a href="#"><?php echo $nume_meniu; ?></a>
+       <li><a href=<?php echo $adresa_meniu ?>><?php echo $nume_meniu; ?></a>
               <ul><?php 
-			  $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu";
+			  $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu ORDER BY ordonare ASC";
 			  $SubMeniu = mysql_query($query_SubMeniu, $conexiune_db) or die(mysql_error());
 		      while ($rowSubMeniu = mysql_fetch_array($SubMeniu))
               {
 			  $id_submeniu=$rowSubMeniu['id_meniu'];
 		      $nume_submeniu=$rowSubMeniu['nume_meniu'];		
-		      $adresa_submeniu=$rowSubMeniu['adresa'];  
+			  if ($rowSubMeniu['nume_meniu'] == '#') {
+              $adresa_submeniu = "#";
+              } else {
+		      $adresa_submeniu=$rowSubMeniu['adresa'];
+		      }
     ?> 
-             <li><a href=<?php echo '../crm/'.$adresa_submeniu ?>><?php echo $nume_submeniu; ?></a> 
+             <li><a href=<?php echo $adresa_submeniu ?>><?php echo $nume_submeniu; ?></a> 
 
 			                   <ul><?php 
-			                   $query_SubMeniu1 = "SELECT * FROM meniu where tip=2 and parinte=$id_submeniu";
+			                   $query_SubMeniu1 = "SELECT * FROM meniu where tip=2 and parinte=$id_submeniu ORDER BY ordonare ASC";
 			                   $SubMeniu1 = mysql_query($query_SubMeniu1, $conexiune_db) or die(mysql_error());
 		                       while ($rowSubMeniu1 = mysql_fetch_array($SubMeniu1))
 							   {
