@@ -9,6 +9,7 @@
 /* Header Style */
 .info-top{
 	line-height: 24px;
+	height: 24px;
 	font-size: 11px;
 	background: rgba(255, 255, 255, 0.4);
 	text-transform: uppercase;
@@ -64,6 +65,7 @@ padding-right: 0px;
 }
 #nav li a, #nav li {
  float: left;
+ z-index: 9999;
 }
 
 #nav li {

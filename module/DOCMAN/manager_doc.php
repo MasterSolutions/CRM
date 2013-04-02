@@ -2766,7 +2766,7 @@ if(isset($_ERROR) && strlen($_ERROR) > 0)
 	print "<div id=\"error\">".$_ERROR."</div>";
 }
 ?>
-<?php require_once('meniu.php'); ?>
+<?php require_once('../../meniu.php'); ?>
 <div id="frame">
 <?php
 if(EncodeExplorer::getConfig('show_top') == true)

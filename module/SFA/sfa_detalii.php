@@ -1,4 +1,4 @@
-<?php include_once('Connections/conexiune_db.php'); ?><?php
+<?php include_once('../../Connections/conexiune_db.php'); ?><?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {

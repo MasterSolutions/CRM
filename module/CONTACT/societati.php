@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexiune_db.php'); ?>
+<?php require_once('../../Connections/conexiune_db.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -60,16 +60,16 @@ $queryString_societati = sprintf("&totalRows_societati=%d%s", $totalRows_societa
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Societati</title>
-<?php require_once('meniu.php'); ?>
+<?php require_once('../../meniu.php'); ?>
 <script src="/crm/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
 <script src="/crm/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="/crm/scripts/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
 <script src="/crm/scripts/jquery.dataTables.pagination.js" type="text/javascript"></script>
-<link href="/crm/css/demo_table_jui.css" rel="stylesheet" type="text/css" />
+<link href="/CRM/css/demo_table_jui.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 /* BeginOAWidget_Instance_2586523: #dataTable */
 
-	@import url("css/custom/base/jquery.ui.all.css");
+	@import url("/CRM/css/custom/base/jquery.ui.all.css");
 	#dataTable {padding: 0;margin:0;width:100%;}
 	#dataTable_wrapper{width:100%;}
 	#dataTable_wrapper th {cursor:pointer;} 
@@ -142,7 +142,7 @@ $(document).ready(function() {
           <td align="center"><?php echo $row_societati['contactat']; ?></td>
           <td align="center"><?php echo $row_societati['observatii']; ?></td>
             <td align="center"><a href="societati_detalii.php?recordID=<?php echo $row_societati['codsocietate']; ?>"><img src="/crm/pic/modifica.png" alt="Modifica" width="24" height="24" /></a></td>
-            <td align="center"><a href="societati_sterge.php?recordID=<?php echo $row_societati['codsocietate']; ?>"><img src="pic/sterge.png" alt="Sterge" width="24" height="24" /></a></td>
+            <td align="center"><a href="societati_sterge.php?recordID=<?php echo $row_societati['codsocietate']; ?>"><img src="/CRM/pic/sterge.png" alt="Sterge" width="24" height="24" /></a></td>
         </tr>
           <?php } while ($row_societati = mysql_fetch_assoc($societati)); ?>
     </tbody>

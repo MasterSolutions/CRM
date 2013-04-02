@@ -81,7 +81,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<link href="css/meniu.css" rel="stylesheet" type="text/css" />
+<link href="/CRM/css/meniu.css" rel="stylesheet" type="text/css" />
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Meniu</title>
@@ -113,7 +113,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 		}
 	     
     ?>
-       <li><a href=<?php echo $adresa_meniu ?>><span><img src="pic/<?php echo $ico_meniu ?>" /><?php echo $nume_meniu; ?></span></a>
+       <li><a href=<?php echo $adresa_meniu ?>><span><img src="/CRM/pic/<?php echo $ico_meniu ?>" /><?php echo $nume_meniu; ?></span></a>
               <ul><?php 
 			  $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu ORDER BY ordonare ASC";
 			  $SubMeniu = mysql_query($query_SubMeniu, $conexiune_db) or die(mysql_error());
@@ -128,7 +128,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 		      $adresa_submeniu=$rowSubMeniu['adresa'];
 		      }
     ?> 
-             <li><a href=<?php echo $adresa_submeniu ?>><span><img src="pic/<?php echo $ico_submeniu ?>" /><?php echo $nume_submeniu; ?></span></a> 
+             <li><a href=<?php echo $adresa_submeniu ?>><span><img src="/CRM/pic/<?php echo $ico_submeniu ?>" /><?php echo $nume_submeniu; ?></span></a> 
 
 			                   <ul><?php 
 			                   $query_SubMeniu1 = "SELECT * FROM meniu where tip=2 and parinte=$id_submeniu ORDER BY ordonare ASC";
@@ -140,7 +140,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 		                       $adresa_submeniu1=$rowSubMeniu1['adresa'] ; 
                                ?>
 							   
-							   <li><a href=<?php echo '../crm/'.$adresa_submeniu1 ?>><span><img src="pic/<?php echo $ico_submeniu1 ?>" /><?php echo $nume_submeniu1; ?></span></a>
+							   <li><a href=<?php echo '../CRM/'.$adresa_submeniu1 ?>><span><img src="/CRM/pic/<?php echo $ico_submeniu1 ?>" /><?php echo $nume_submeniu1; ?></span></a>
 							   <?php }  ?>
 							   </ul>
 

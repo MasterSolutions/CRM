@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexiune_db.php'); ?>
+<?php require_once('../../Connections/conexiune_db.php'); ?>
 <?php
 if (!isset($_SESSION)) {
   session_start();

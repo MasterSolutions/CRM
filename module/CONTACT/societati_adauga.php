@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexiune_db.php'); ?>
+<?php require_once('../../Connections/conexiune_db.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -69,12 +69,12 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" media="all" href="css/machete.css" />
-<script language="javascript" type="text/javascript" src="scripts/niceforms.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="/CRM/css/machete.css" />
+<script language="javascript" type="text/javascript" src="/CRM/scripts/niceforms.js"></script>
 <title>Societati - adauga</title>
 </head>
 <body>
-<?php require_once('meniu.php'); ?>
+<?php require_once('../../meniu.php'); ?>
 <div id="container">
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="niceform">
 	<fieldset>

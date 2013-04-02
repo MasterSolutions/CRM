@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexiune_db.php'); ?>
+<?php require_once('../../Connections/conexiune_db.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -111,7 +111,7 @@ $queryString_etape = sprintf("&totalRows_etape=%d%s", $totalRows_etape, $querySt
   <?php do { ?>
     <tr>
       <td><?php echo $row_etape['codsfae']; ?></td>
-      <td><?php echo $row_etape['denumiresolutie']; ?>&nbsp; </td>
+      <td><?php echo $row_etape['denumireetapa']; ?>&nbsp; </td>
       <td><?php echo $row_etape['ordine']; ?></td>
       <td><a href="sfa_etape_detalii.php?recordID=<?php echo $row_etape['codsfae']; ?>"><img src="/crm/imagini/modifica.png" alt="Modifica" width="24" height="24" /></a></td>
       <td><a href="sfa_etape_sterge.php?recordID=<?php echo $row_etape['codsfae']; ?>"><img src="imagini/sterge.png" alt="Sterge" width="24" height="24" /></a></td>

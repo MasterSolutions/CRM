@@ -1,4 +1,4 @@
-<?php virtual('/crm/Connections/conexiune_db.php'); ?>
+<?php virtual('../../Connections/conexiune_db.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
