@@ -86,7 +86,19 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Meniu</title>
 </head>
- 
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+	  if ($.browser.msie && $.browser.version.substr(0,1)<7)
+	  {
+		$('li').has('ul').mouseover(function(){
+			$(this).children('ul').show();
+			}).mouseout(function(){
+			$(this).children('ul').hide();
+			})
+	  }
+	});        
+</script>
 <body marginwidth="0" topmargin="0">
 
 <div id="container-menu">
@@ -96,7 +108,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
  ?>
  </div>
  <div class="main_menu">
-    <ul id="nav">
+    <ul id="menu">
         <?php 
 		mysql_select_db($database_conexiune_db, $conexiune_db);
         $query_Meniu = "SELECT * FROM meniu where tip=0 ORDER BY ordonare ASC";
@@ -113,7 +125,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 		}
 	     
     ?>
-       <li><a href=<?php echo $adresa_meniu ?>><span><img src="/CRM/pic/<?php echo $ico_meniu ?>" /><?php echo $nume_meniu; ?></span></a>
+       <li><a href=<?php echo $adresa_meniu ?>><span><img src="/CRM/css/pic/Meniu/<?php echo $ico_meniu ?>" /></span><br><?php echo $nume_meniu; ?></span></a>
               <ul><?php 
 			  $query_SubMeniu = "SELECT * FROM meniu where tip=1 and parinte=$id_meniu ORDER BY ordonare ASC";
 			  $SubMeniu = mysql_query($query_SubMeniu, $conexiune_db) or die(mysql_error());
@@ -128,7 +140,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 		      $adresa_submeniu=$rowSubMeniu['adresa'];
 		      }
     ?> 
-             <li><a href=<?php echo $adresa_submeniu ?>><span><img src="/CRM/pic/<?php echo $ico_submeniu ?>" /><?php echo $nume_submeniu; ?></span></a> 
+             <li><a href=<?php echo $adresa_submeniu ?>><span class="submeniu"><img src="/CRM/css/pic/Meniu/<?php echo $ico_submeniu ?>" /><?php echo $nume_submeniu; ?></span></a> 
 
 			                   <ul><?php 
 			                   $query_SubMeniu1 = "SELECT * FROM meniu where tip=2 and parinte=$id_submeniu ORDER BY ordonare ASC";
@@ -140,7 +152,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 		                       $adresa_submeniu1=$rowSubMeniu1['adresa'] ; 
                                ?>
 							   
-							   <li><a href=<?php echo '../CRM/'.$adresa_submeniu1 ?>><span><img src="/CRM/pic/<?php echo $ico_submeniu1 ?>" /><?php echo $nume_submeniu1; ?></span></a>
+							   <li><a href=<?php echo '../CRM/'.$adresa_submeniu1 ?>><span class="submeniu"><img src="/CRM/css/pic/Meniu/<?php echo $ico_submeniu1 ?>" /><?php echo $nume_submeniu1; ?></span></a>
 							   <?php }  ?>
 							   </ul>
 
@@ -154,8 +166,5 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
     </ul>
  </div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>	
-<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

@@ -61,10 +61,10 @@ $queryString_societati = sprintf("&totalRows_societati=%d%s", $totalRows_societa
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Societati</title>
 <?php require_once('../../meniu.php'); ?>
-<script src="/crm/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
-<script src="/crm/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="/crm/scripts/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
-<script src="/crm/scripts/jquery.dataTables.pagination.js" type="text/javascript"></script>
+<script src="/CRM/module/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+<script src="/CRM/module/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="/CRM/module/js/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
+<script src="/CRM/module/js/jquery.dataTables.pagination.js" type="text/javascript"></script>
 <link href="/CRM/css/demo_table_jui.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 /* BeginOAWidget_Instance_2586523: #dataTable */
@@ -141,8 +141,8 @@ $(document).ready(function() {
           <td align="center"><?php echo $row_societati['emailcontact']; ?></td>
           <td align="center"><?php echo $row_societati['contactat']; ?></td>
           <td align="center"><?php echo $row_societati['observatii']; ?></td>
-            <td align="center"><a href="societati_detalii.php?recordID=<?php echo $row_societati['codsocietate']; ?>"><img src="/crm/pic/modifica.png" alt="Modifica" width="24" height="24" /></a></td>
-            <td align="center"><a href="societati_sterge.php?recordID=<?php echo $row_societati['codsocietate']; ?>"><img src="/CRM/pic/sterge.png" alt="Sterge" width="24" height="24" /></a></td>
+            <td align="center"><a href="societati_detalii.php?recordID=<?php echo $row_societati['codsocietate']; ?>"><img src="/CRM/css/pic/Grid/modifica.png" alt="Modifica" width="24" height="24" /></a></td>
+            <td align="center"><a href="societati_sterge.php?recordID=<?php echo $row_societati['codsocietate']; ?>"><img src="/CRM/css/pic/Grid/sterge.png" alt="Sterge" width="24" height="24" /></a></td>
         </tr>
           <?php } while ($row_societati = mysql_fetch_assoc($societati)); ?>
     </tbody>

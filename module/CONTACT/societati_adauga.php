@@ -57,7 +57,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   mysql_select_db($database_conexiune_db, $conexiune_db);
   $Result1 = mysql_query($insertSQL, $conexiune_db) or die(mysql_error());
 
-  $insertGoTo = "/crm/societati.php";
+  $insertGoTo = "/CRM/societati.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
     $insertGoTo .= $_SERVER['QUERY_STRING'];
@@ -70,7 +70,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" media="all" href="/CRM/css/machete.css" />
-<script language="javascript" type="text/javascript" src="/CRM/scripts/niceforms.js"></script>
+<script language="javascript" type="text/javascript" src="/CRM/module/js/niceforms.js"></script>
 <title>Societati - adauga</title>
 </head>
 <body>
