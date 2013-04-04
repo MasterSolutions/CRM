@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_select_detalii_mail" value="name:denumire;datatype:string,name:cui;datatype:string,name:regcom;datatype:string,name:adresa;datatype:string,name:telefon;datatype:string,name:mail;datatype:string,name:mailnotificare;datatype:string,name:web;datatype:string,name:crmclienti;datatype:string,name:permitecont;datatype:int" />
+</info>
