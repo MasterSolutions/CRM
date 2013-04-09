@@ -14,7 +14,8 @@
         var success = data.success;
         if (success == 1) {
           $("#message").text("Calculation done! See result below.");
-          $("#difference").val(data.days + " day(s) " + data.hours + " hour(s) " + data.minutes + " minute(s) " + data.seconds + " second(s) ");
+          $("#difference").val(data.hours + ":" + data.minutes );
+		  $("#difference2").val(data.hours_rot + ":" + data.minutes_rot );
         }
         else {
           $("#message").text("Error! " + data.reason);
@@ -30,7 +31,8 @@
   <form>
     <input id="start_time" type="text" value="" name="start_time"/>
     <input id="end_time" type="text" value="" name="end_time"/>
-    <input id="difference" type="text" value="" name="difference"/>
+    <input name="difference" type="text" id="difference" value="" size="155"/>
+    <input name="difference2" type="text" id="difference2" value="" size="55"/>
   </form>
 </body>
 </html>

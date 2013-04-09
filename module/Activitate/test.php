@@ -12,15 +12,23 @@ function get_time_difference( $start, $end )
     if( $uts['end'] >= $uts['start'] )
     {
       $diff    =    $uts['end'] - $uts['start'];
-      if( $days=intval((floor($diff/86400))) )
-      $diff = $diff % 86400;
       if( $hours=intval((floor($diff/3600))) )
       $diff = $diff % 3600;
       if( $minutes=intval((floor($diff/60))) )
       $diff = $diff % 60;
       $diff    =    intval( $diff );
-      return( array('success'=>1, 'days'=>$days, 'hours'=>$hours, 'minutes'=>$minutes, 'seconds'=>$diff) );
-    }
+	  if($minutes >= 30) { 
+              $hours_rot = $hours + 1;
+			  $minutes_rot = 0 ;
+      return( array('success'=>1, 'hours'=>$hours,'minutes'=>$minutes,'hours_rot'=>$hours_rot,'minutes_rot'=>$minutes_rot) );
+	                     } else  {
+			  $hours_rot = $hours; 
+			  $minutes_rot = 0 ;   
+      return( array('success'=>1, 'hours'=>$hours,'minutes'=>$minutes,'hours_rot'=>$hours_rot,'minutes_rot'=>$minutes_rot) );
+                                  }
+	
+	}
+     
     else
     {
       return(array('success'=>0, 'reason'=>'Ending date/time is earlier than the start date/time'));
