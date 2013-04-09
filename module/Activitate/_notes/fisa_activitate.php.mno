@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_activitate" value="name:cod_client;datatype:int,name:nr_fisa;datatype:int,name:data_fisa;datatype:string,name:explicatii;datatype:string,name:ora_inc;datatype:string,name:ora_fin;datatype:string,name:total_ore;datatype:int" />
+	<infoitem key="UD_societati" value="name:codsocietate;datatype:int,name:denumire;datatype:string" />
+</info>

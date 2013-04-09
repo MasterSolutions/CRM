@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_numar_doc" value="name:cod_client;datatype:int,name:nr_fisa;datatype:int,name:ziua;datatype:string,name:lunaan;datatype:string,name:explicatii;datatype:string,name:ora_inc;datatype:string,name:ora_fin;datatype:string,name:total_ore;datatype:int" />
+</info>
