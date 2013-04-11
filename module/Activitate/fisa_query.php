@@ -106,7 +106,7 @@ $totalRows_numar_doc = mysql_num_rows($numar_doc);
       <td><input name="ziua" type="text" id="ziua" value="<?php echo $ziua ?>" size="2" /></td>
       <td><input type="text" name="explicatii" value="" size="32"></td>
       <td><input type="text" name="ora_inc" value="" size="5"></td>
-      <td><input type="text" name="ora_fin" value="" size="5"></td>
+      <td><input type="text" name="ora_fin" value="" size="5" ></td>
       <td><input type="text" name="total_ore" value="" size="5"></td>
     </tr>
     <tr valign="baseline">
@@ -115,6 +115,13 @@ $totalRows_numar_doc = mysql_num_rows($numar_doc);
   </table>
   <input type="hidden" name="MM_insert" value="form1">
 </form>
+  <div id="message">&nbsp;</div>
+  <form>
+    <input id="start_time" type="text" value="" name="start_time"/>
+    <input id="end_time" type="text" value="" name="end_time"/>
+    <input name="difference" type="text" id="difference" value="" size="155"/>
+    <input name="difference2" type="text" id="difference2" value="" size="55"/>
+  </form>
 <?php
 mysql_free_result($numar_doc);
 ?>

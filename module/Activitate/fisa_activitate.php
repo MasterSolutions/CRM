@@ -1,4 +1,6 @@
 <?php require_once('../../Connections/conexiune_db.php'); ?>
+<script src="/CRM/module/js/fisa_activitate_form.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -44,51 +46,9 @@ $totalRows_societati = mysql_num_rows($societati);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Fisa activitate</title>
 </head>
-
 <body>
-<script language="javascript" type="text/javascript">
-<!-- 
-//Browser Support Code
-function ajaxFunction(){
-	var ajaxRequest;  // The variable that makes Ajax possible!
-	
-	try{
-		// Opera 8.0+, Firefox, Safari
-		ajaxRequest = new XMLHttpRequest();
-	} catch (e){
-		// Internet Explorer Browsers
-		try{
-			ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-		} catch (e) {
-			try{
-				ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-			} catch (e){
-				// Something went wrong
-				alert("Your browser broke!");
-				return false;
-			}
-		}
-	}
-	// Create a function that will receive data sent from the server
-	ajaxRequest.onreadystatechange = function(){
-		if(ajaxRequest.readyState == 4){
-			var ajaxDisplay = document.getElementById('ajaxDiv');
-			ajaxDisplay.innerHTML = ajaxRequest.responseText;
-		}
-	}
-	var client = document.getElementById('client').value;
-	var queryString = "?client=" + client ;
-	ajaxRequest.open("GET", "fisa_query.php" + queryString, true);
-	ajaxRequest.send(null); 
-}
-
-//-->
-</script>
-
-
-
 <form name='myForm'>
-  <select name="client" id="client" onblur="ajaxFunction()" onclick='ajaxFunction()' value='Query MySQL'>
+  <select name="client" id="client" onBlur="ajaxFunction()" onclick='ajaxFunction()' value='Query MySQL'>
       <?php
 do {  
 ?>
