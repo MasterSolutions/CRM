@@ -21,11 +21,11 @@
      document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
      }
    }
- xmlhttp.open("GET","upload_factura_soc.php?q="+str,true);
+ xmlhttp.open("GET","upload_documente_soc.php?q="+str,true);
  xmlhttp.send();
  }
  </script>
-<?php require_once('Connections/conexiune_db.php'); ?>
+<?php require_once('../../Connections/conexiune_db.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -69,9 +69,12 @@ $totalRows_upload_facturi = mysql_num_rows($upload_facturi);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Documente emise</title>
+<link href="/CRM/css/machete.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+<?php require_once('../../meniu.php'); ?>
+<div id="container">
 <form action="upload_documente_result.php" method="POST" enctype="multipart/form-data" id="form1">
 	<input type="file" name="files[]" multiple/>
     <select name="societate" id="societate" onclick="showSocietate(this.value)">
@@ -93,5 +96,6 @@ do {
  <div id="txtHint"><b>Person info will be listed here.</b></div>
 	<input type="submit"/>
 </form>
+</div>
 </body>
 </html>

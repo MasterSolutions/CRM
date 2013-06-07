@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexiune_db.php'); ?>
+<?php require_once('../../Connections/conexiune_db.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -80,14 +80,14 @@ if(isset($_FILES['files'])){
         $director = $_POST["denumire"];
         $desired_dir="$director";
         if(empty($errors)==true){
-            if(is_dir("client/doc/".$desired_dir)==false){
-                 mkdir("client/doc/"."$desired_dir", 0755);		// Create directory if it does not exist
+            if(is_dir("../../client/doc/".$desired_dir)==false){
+                 mkdir("../../client/doc/"."$desired_dir", 0755);		// Create directory if it does not exist
             }
 			    
-				 $filename = "client/doc/"."$desired_dir/".$numefisier;
-                 $new_dir="client/doc/"."$director/".$numefisier;
+				 $filename = "../../client/doc/"."$desired_dir/".$numefisier;
+                 $new_dir="../../client/doc/"."$director/".$numefisier;
                  if (file_exists($filename)) {
-			     $new_dir="client/doc/"."$director/".time().$numefisier;
+			     $new_dir="../../client/doc/"."$director/".time().$numefisier;
                  rename($file_tmp,$new_dir) ;
 				 chmod("$new_dir", 0644);
 				 $numefisier= time().$numefisier;
@@ -96,7 +96,7 @@ if(isset($_FILES['files'])){
 				 $upload_documente = mysql_query($query_upload_documente, $conexiune_db) or die(mysql_error());
                                  			 
                 } else {
-				 move_uploaded_file($file_tmp,"client/doc/"."$director/".$numefisier);
+				 move_uploaded_file($file_tmp,"../../client/doc/"."$director/".$numefisier);
 				 echo "Fisierul "  .$numefisier ." nu exista. Il creez. " ."<br>";
 				 $query_upload_documente = "INSERT into documente_emise (idsoc,nume_fisier,dimensiune_fisier,tip_fisier,ziua,lunaan) VALUES('$cod_securizare_document','$numefisier','$sizefisierconvert','$tipfisier','$ziua','$lunaan'); ";
 				 $upload_documente = mysql_query($query_upload_documente, $conexiune_db) or die(mysql_error());
