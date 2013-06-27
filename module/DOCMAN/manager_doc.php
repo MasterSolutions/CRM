@@ -843,8 +843,9 @@ div.subtitle{
 	text-align:left;
 	position: relative;
 	margin: 0 auto;
-	max-width:680px;
-	overflow:hidden;
+    width: 80%;
+	overflow:visible;
+	margin-top: 20px;
 }
 
 #error {
@@ -956,7 +957,7 @@ table img{
 #upload {
 	margin: 0 auto;
 	margin-top:2px;
-	max-width:680px;
+	max-width:80%;
 }
 
 #upload #password_container {
@@ -2669,6 +2670,7 @@ class EncodeExplorer
 		global $_ERROR;
 		global $_START_TIME;
 ?>
+<?php require_once('../../meniu.php'); ?>
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $this->getConfig('lang'); ?>" lang="<?php print $this->getConfig('lang'); ?>">
 <head>
@@ -2766,7 +2768,7 @@ if(isset($_ERROR) && strlen($_ERROR) > 0)
 	print "<div id=\"error\">".$_ERROR."</div>";
 }
 ?>
-<?php require_once('../../meniu.php'); ?>
+
 <div id="frame">
 <?php
 if(EncodeExplorer::getConfig('show_top') == true)
@@ -3020,4 +3022,5 @@ if(!ImageServer::showImage() && !Logger::logQuery())
 	$encodeExplorer->run($location);
 }
 ?>
+</div>
 

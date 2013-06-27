@@ -118,10 +118,10 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
         $id_meniu=$rowMeniu['id_meniu'];
 	    $nume_meniu=$rowMeniu['nume_meniu'];
 		$ico_meniu=$rowMeniu['ico'];
-		if ($rowMeniu['nume_meniu'] == '#') {
+		if ($rowMeniu['adresa'] == '#') {
         $adresa_meniu = "#";
         } else {
-		$adresa_meniu=$rowMeniu['adresa'];
+		$adresa_meniu="../".$rowMeniu['modul']."/".$rowMeniu['adresa'];
 		}
 	     
     ?>
@@ -134,10 +134,10 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 			  $id_submeniu=$rowSubMeniu['id_meniu'];
 		      $nume_submeniu=$rowSubMeniu['nume_meniu'];
 			  $ico_submeniu=$rowSubMeniu['ico'];		
-			  if ($rowSubMeniu['nume_meniu'] == '#') {
+			  if ($rowSubMeniu['adresa'] == '#') {
               $adresa_submeniu = "#";
               } else {
-		      $adresa_submeniu=$rowSubMeniu['adresa'];
+		      $adresa_submeniu="../".$rowSubMeniu['modul']."/".$rowSubMeniu['adresa'];
 		      }
     ?> 
              <li><a href=<?php echo $adresa_submeniu ?>><span class="submeniu"><img src="/CRM/css/pic/Meniu/<?php echo $ico_submeniu ?>" /><?php echo $nume_submeniu; ?></span></a> 
@@ -149,10 +149,11 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 							   {
                                $nume_submeniu1=$rowSubMeniu1['nume_meniu'];	
 							   $ico_submeniu1=$rowSubMeniu1['ico'];	
-		                       $adresa_submeniu1=$rowSubMeniu1['adresa'] ; 
+		                       $adresa_submeniu1="../".$rowSubMeniu1['modul']."/".$rowSubMeniu1['adresa'] ; 
+							 
                                ?>
 							   
-							   <li><a href=<?php echo '../CRM/'.$adresa_submeniu1 ?>><span class="submeniu"><img src="/CRM/css/pic/Meniu/<?php echo $ico_submeniu1 ?>" /><?php echo $nume_submeniu1; ?></span></a>
+							   <li><a href=<?php echo $adresa_submeniu1 ?>><span class="submeniu"><img src="/CRM/css/pic/Meniu/<?php echo $ico_submeniu1 ?>" /><?php echo $nume_submeniu1; ?></span></a>
 							   <?php }  ?>
 							   </ul>
 

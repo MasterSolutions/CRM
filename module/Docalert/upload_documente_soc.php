@@ -42,19 +42,27 @@ $totalRows_get_societatiietati = mysql_num_rows($get_societatiietati);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Detalii facturare</title>
+<title>Detalii documente emise</title>
 </head>
 
 <body>
-<p>
-  <input name="denumire" type="text" value="<?php echo $row_get_societatiietati['denumire']; ?>" />
-</p>
-<p>
-  <input name="email" type="text" value="<?php echo $row_get_societatiietati['email']; ?>" />
-</p>
-<p>
-<input name="codsocietate" type="text" value="<?php echo $row_get_societatiietati['codsocietate']; ?>" />
-</p>
+<table width="100%" border="0">
+  <tr>
+    <td>Denumire:</td>
+    <td><?php echo $row_get_societatiietati['denumire']; ?>
+    <input name="denumire" type="hidden" value="<?php echo $row_get_societatiietati['denumire']; ?>" /></td>
+  </tr>
+  <tr>
+    <td>E-mail: </td>
+    <td><?php echo $row_get_societatiietati['email']; ?>
+    <input name="email" type="hidden" value="<?php echo $row_get_societatiietati['email']; ?>" /></td>
+  </tr>
+  <tr>
+    <td>Cod intern: </td>
+    <td><?php echo $row_get_societatiietati['codsocietate']; ?>
+    <input name="codsocietate" type="hidden" value="<?php echo $row_get_societatiietati['codsocietate']; ?>" /></td>
+  </tr>
+</table>
 </body>
 </html>
 <?php

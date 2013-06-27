@@ -73,8 +73,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 <script language="javascript" type="text/javascript" src="/CRM/module/js/niceforms.js"></script>
 <title>Societati - adauga</title>
 </head>
-<body>
 <?php require_once('../../meniu.php'); ?>
+<body>
 <div id="container">
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="niceform">
 	<fieldset>

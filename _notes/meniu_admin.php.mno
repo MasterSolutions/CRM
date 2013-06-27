@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Meniu" value="name:id_meniu;datatype:int,name:modul;datatype:string,name:nume_meniu;datatype:string,name:ico;datatype:string,name:tip;datatype:int,name:parinte;datatype:int,name:ordonare;datatype:int,name:adresa;datatype:string" />
+</info>

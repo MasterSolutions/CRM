@@ -3,7 +3,7 @@
  {
  if (str=="")
    {
-   document.getElementById("txtHint").innerHTML="";
+   document.getElementById("txtDetalii").innerHTML="";
    return;
    } 
  if (window.XMLHttpRequest)
@@ -18,7 +18,7 @@
    {
    if (xmlhttp.readyState==4 && xmlhttp.status==200)
      {
-     document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+     document.getElementById("txtDetalii").innerHTML=xmlhttp.responseText;
      }
    }
  xmlhttp.open("GET","upload_documente_soc.php?q="+str,true);
@@ -71,12 +71,13 @@ $totalRows_upload_facturi = mysql_num_rows($upload_facturi);
 <title>Documente emise</title>
 <link href="/CRM/css/machete.css" rel="stylesheet" type="text/css" />
 </head>
-
-<body>
 <?php require_once('../../meniu.php'); ?>
+<body>
 <div id="container">
-<form action="upload_documente_result.php" method="POST" enctype="multipart/form-data" id="form1">
-	<input type="file" name="files[]" multiple/>
+<form action="upload_documente_result.php" method="POST" enctype="multipart/form-data" id="form1" class="niceform">
+    <fieldset>
+    <legend>Emite document</legend><br />
+    <input type="file" name="files[]" multiple/>
     <select name="societate" id="societate" onclick="showSocietate(this.value)">
     <option value="------------------------" <?php if (!(strcmp("------------------------", $row_upload_facturi['denumire']))) {echo "selected=\"selected\"";} ?>>------------------</option>
     <?php
@@ -93,8 +94,9 @@ do {
 ?>
   </select>
 </h2>
- <div id="txtHint"><b>Person info will be listed here.</b></div>
-	<input type="submit"/>
+ <div id="txtDetalii"><b>Datele societatii se vor afisa dupa selectie.</b></div>
+	<input type="submit" value="Trimite"/>
+    </fieldset>
 </form>
 </div>
 </body>

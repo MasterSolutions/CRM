@@ -38,7 +38,7 @@
 .main_menu
 {
 background: linear-gradient(to bottom, #F5F5F5, #C4C4C4) transparent;
-height: 59px;
+height: 60px;
 margin: 0px 0px 0px;
 text-align: center;
 background-size: 100%;
@@ -86,6 +86,7 @@ float: left;
 	font: bold 12px/25px Arial, Helvetica;
 	text-decoration: none;
 	width: 70px;
+
 }
 
 #menu li:hover > a
