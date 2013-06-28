@@ -42,7 +42,7 @@ $date = mysql_query($query_date, $conexiune_db) or die(mysql_error());
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Master Page</title>
-<link href="/crm/client/css/TableCSSCode.css" rel="stylesheet" type="text/css" />
+<link href="/CRM/client/css/TableCSSCode.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
