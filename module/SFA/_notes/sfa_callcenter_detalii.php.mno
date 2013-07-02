@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_sfa_etape" value="name:codsfae;datatype:int,name:denumireetapa;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_sfa_callaction" value="name:codsocietate;datatype:int,name:denumire;datatype:string,name:adresa;datatype:string,name:cui;datatype:string,name:regcom;datatype:string,name:profil;datatype:string,name:email;datatype:string,name:contact;datatype:string,name:functia;datatype:string,name:telefon;datatype:string,name:emailcontact;datatype:string,name:contactat;datatype:string,name:observatii;datatype:string,name:client;datatype:int,name:utilizator;datatype:string,name:parola;datatype:string" />
+</info>

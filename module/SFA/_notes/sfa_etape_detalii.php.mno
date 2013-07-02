@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_detalii_etape" value="name:codsfae;datatype:int,name:denumireetapa;datatype:string,name:ordine;datatype:int" />
+	<infoitem key="UD_count" value="name:codsfae;datatype:int" />
+</info>

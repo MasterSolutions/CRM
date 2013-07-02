@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_DetailRS1" value="name:cod_pers;datatype:int,name:cod_societatep;datatype:int,name:numep;datatype:string,name:prenumep;datatype:string,name:telefonp;datatype:string,name:emailp;datatype:string,name:utilizator;datatype:string,name:denumire;datatype:string" />
+	<infoitem key="UD_LiveData_params" value="1" />
+	<infoitem key="UD_LiveData_param0" value="recordID=1" />
+	<infoitem key="UD_detalii_persoana" value="name:cod_pers;datatype:int,name:cod_societatep;datatype:int,name:numep;datatype:string,name:prenumep;datatype:string,name:telefonp;datatype:string,name:emailp;datatype:string,name:utilizator;datatype:string,name:denumire;datatype:string" />
+</info>

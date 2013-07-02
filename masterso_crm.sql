@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.5
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jun 28, 2013 at 04:16 PM
--- Server version: 5.1.68-cll
--- PHP Version: 5.3.17
+-- Host: 127.0.0.1
+-- Generation Time: Jul 02, 2013 at 04:33 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `masterso_crm`
+-- Database: `crm`
 --
+CREATE DATABASE IF NOT EXISTS `crm` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `crm`;
 
 -- --------------------------------------------------------
 
@@ -256,7 +258,14 @@ CREATE TABLE IF NOT EXISTS `societati_persoane` (
   `telefonp` varchar(15) NOT NULL,
   `emailp` varchar(15) NOT NULL,
   PRIMARY KEY (`cod_pers`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `societati_persoane`
+--
+
+INSERT INTO `societati_persoane` (`cod_pers`, `cod_societatep`, `numep`, `prenumep`, `telefonp`, `emailp`) VALUES
+(13, 26, 'Florin', 'Mates', '0742323211', 'florin@phabeda.');
 
 -- --------------------------------------------------------
 
@@ -266,20 +275,20 @@ CREATE TABLE IF NOT EXISTS `societati_persoane` (
 
 CREATE TABLE IF NOT EXISTS `utilizatori` (
   `coduser` int(11) NOT NULL AUTO_INCREMENT,
+  `codpersoana` int(11) DEFAULT NULL,
   `utilizator` varchar(20) NOT NULL,
-  `mailuser` varchar(70) NOT NULL,
   `parola` varchar(20) NOT NULL,
   `permisiuni` int(1) NOT NULL DEFAULT '0',
   `codsocietate` int(11) NOT NULL,
   PRIMARY KEY (`coduser`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `utilizatori`
 --
 
-INSERT INTO `utilizatori` (`coduser`, `utilizator`, `mailuser`, `parola`, `permisiuni`, `codsocietate`) VALUES
-(1, 'ovidiu', '', '1234', 1, 26);
+INSERT INTO `utilizatori` (`coduser`, `codpersoana`, `utilizator`, `parola`, `permisiuni`, `codsocietate`) VALUES
+(1, 0, 'ovidiu', '1234', 1, 26);
 
 -- --------------------------------------------------------
 
