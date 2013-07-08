@@ -88,6 +88,7 @@ $queryString_persoane = sprintf("&totalRows_persoane=%d%s", $totalRows_persoane,
     <td>emailp</td>
     <td>utilizator</td>
     <td>denumire</td>
+    <td>ss</td>
   </tr>
   <?php do { ?>
     <tr>
@@ -97,9 +98,22 @@ $queryString_persoane = sprintf("&totalRows_persoane=%d%s", $totalRows_persoane,
       <td><?php echo $row_persoane['prenumep']; ?>&nbsp; </td>
       <td><?php echo $row_persoane['telefonp']; ?>&nbsp; </td>
       <td><?php echo $row_persoane['emailp']; ?>&nbsp; </td>
-      <td><?php echo $row_persoane['utilizator']; ?>&nbsp; </td>
+      <td><?php
+	  if ($row_persoane['utilizator'] != NULL)
+   {?>
+   <?php echo $row_persoane['utilizator']; ?><a href="utilizatori_detalii.php?recordID=<?php echo $row_persoane['cod_pers']; ?>"><img src="/CRM/css/pic/Grid/modifica.png" alt="Modifica" width="24" height="24" /></a>
+  <?php }
+ else
+  {?>
+   <?php echo $row_persoane['utilizator']; ?><a href="utilizatori_detalii.php?recordID=<?php echo $row_persoane['cod_pers']; ?>"><img src="/CRM/css/pic/Grid/modifica.png" alt="Modifica" width="24" height="24" /></a>
+  <?php }
+	  
+ ?>	
       <td><?php echo $row_persoane['denumire']; ?>&nbsp; </td>
-    </tr>
+      <td></td>
+	  
+
+
     <?php } while ($row_persoane = mysql_fetch_assoc($persoane)); ?>
 </table>
 <br />
@@ -107,16 +121,16 @@ $queryString_persoane = sprintf("&totalRows_persoane=%d%s", $totalRows_persoane,
   <tr>
     <td><?php if ($pageNum_persoane > 0) { // Show if not first page ?>
         <a href="<?php printf("%s?pageNum_persoane=%d%s", $currentPage, 0, $queryString_persoane); ?>">First</a>
-        <?php } // Show if not first page ?></td>
+    <?php } // Show if not first page ?></td>
     <td><?php if ($pageNum_persoane > 0) { // Show if not first page ?>
         <a href="<?php printf("%s?pageNum_persoane=%d%s", $currentPage, max(0, $pageNum_persoane - 1), $queryString_persoane); ?>">Previous</a>
-        <?php } // Show if not first page ?></td>
+    <?php } // Show if not first page ?></td>
     <td><?php if ($pageNum_persoane < $totalPages_persoane) { // Show if not last page ?>
         <a href="<?php printf("%s?pageNum_persoane=%d%s", $currentPage, min($totalPages_persoane, $pageNum_persoane + 1), $queryString_persoane); ?>">Next</a>
-        <?php } // Show if not last page ?></td>
+    <?php } // Show if not last page ?></td>
     <td><?php if ($pageNum_persoane < $totalPages_persoane) { // Show if not last page ?>
         <a href="<?php printf("%s?pageNum_persoane=%d%s", $currentPage, $totalPages_persoane, $queryString_persoane); ?>">Last</a>
-        <?php } // Show if not last page ?></td>
+    <?php } // Show if not last page ?></td>
   </tr>
 </table>
 Records <?php echo ($startRow_persoane + 1) ?> to <?php echo min($startRow_persoane + $maxRows_persoane, $totalRows_persoane) ?> of <?php echo $totalRows_persoane ?>

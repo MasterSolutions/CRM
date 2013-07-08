@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_utilizatori" value="name:coduser;datatype:int,name:codpersoana;datatype:int,name:utilizator;datatype:string,name:parola;datatype:string,name:permisiuni;datatype:int" />
+</info>
