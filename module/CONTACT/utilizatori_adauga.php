@@ -72,17 +72,20 @@ $totalRows_persoane = mysql_num_rows($persoane);
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
   <table align="center">
     <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Coduser:</td>
-      <td><input type="text" name="coduser" value="" size="32" /></td>
+      <td nowrap="nowrap" align="right">SS:</td>
+      <td><input name="coduser" type="hidden" value="" /></td>
     </tr>
     <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Codpersoana:</td>
-      <td><label for="codpersoana"></label>
+      <td nowrap="nowrap" align="right">Nume/Prenume:</td>
+      <td><?php if ((isset($_GET['recordID'])) && ($_GET['recordID'] != "")) 
+   {?>
+        <label for="coduser1"></label>
+        <label for="codpersoana"></label>
         <select name="codpersoana" id="codpersoana">
           <?php
 do {  
 ?>
-          <option value="<?php echo $row_persoane['cod_pers']?>"><?php echo $row_persoane['numep'],' ',$row_persoane['prenumep']?></option>
+          <option value="<?php echo $row_persoane['cod_pers']?>"<?php if (!(strcmp($row_persoane['cod_pers'], $_GET['recordID']))) {echo "selected=\"selected\"";} ?>><?php echo $row_persoane['numep'], ' ' , $row_persoane['prenumep']?></option>
           <?php
 } while ($row_persoane = mysql_fetch_assoc($persoane));
   $rows = mysql_num_rows($persoane);
@@ -91,11 +94,32 @@ do {
 	  $row_persoane = mysql_fetch_assoc($persoane);
   }
 ?>
-      </select></td>
+      </select>
+   <?php }
+ else
+   {?>
+   <label for="codpersoana"></label>
+        <select name="codpersoana" id="codpersoana">
+          <?php
+do {  
+?>
+          <option value="<?php echo $row_persoane['cod_pers']?>"><?php echo $row_persoane['numep'], ' ' , $row_persoane['prenumep']?></option>
+          <?php
+} while ($row_persoane = mysql_fetch_assoc($persoane));
+  $rows = mysql_num_rows($persoane);
+  if($rows > 0) {
+      mysql_data_seek($persoane, 0);
+	  $row_persoane = mysql_fetch_assoc($persoane);
+  }
+?>
+        </select>
+    <?php }
+	  
+ ?>	</td>
     </tr>
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">Utilizator:</td>
-      <td><input type="text" name="utilizator" value="" size="32" /></td>
+      <td><input type="text" name="utilizator"  size="32" /></td>
     </tr>
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">Parola:</td>

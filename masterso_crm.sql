@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2013 at 06:07 PM
+-- Generation Time: Jul 09, 2013 at 05:00 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -280,15 +280,16 @@ CREATE TABLE IF NOT EXISTS `utilizatori` (
   `utilizator` varchar(20) NOT NULL,
   `parola` varchar(20) NOT NULL,
   `permisiuni` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`coduser`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+  PRIMARY KEY (`coduser`),
+  UNIQUE KEY `codpersoana` (`codpersoana`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
 
 --
 -- Dumping data for table `utilizatori`
 --
 
 INSERT INTO `utilizatori` (`coduser`, `codpersoana`, `utilizator`, `parola`, `permisiuni`) VALUES
-(1, 13, 'ovidiu', '1234', 1);
+(1, NULL, 'ovidiu', '1234', 1);
 
 -- --------------------------------------------------------
 

@@ -82,13 +82,13 @@ $queryString_persoane = sprintf("&totalRows_persoane=%d%s", $totalRows_persoane,
   <tr>
     <td>cod_pers</td>
     <td>cod_societatep</td>
-    <td>numep</td>
-    <td>prenumep</td>
-    <td>telefonp</td>
-    <td>emailp</td>
-    <td>utilizator</td>
-    <td>denumire</td>
-    <td>ss</td>
+    <td>Nume</td>
+    <td>Prenume</td>
+    <td>Telefon</td>
+    <td>E-mail</td>
+    <td>Societate</td>
+    <td>Utilizator</td>
+    <td>Optiuni utilizator</td>
   </tr>
   <?php do { ?>
     <tr>
@@ -98,19 +98,29 @@ $queryString_persoane = sprintf("&totalRows_persoane=%d%s", $totalRows_persoane,
       <td><?php echo $row_persoane['prenumep']; ?>&nbsp; </td>
       <td><?php echo $row_persoane['telefonp']; ?>&nbsp; </td>
       <td><?php echo $row_persoane['emailp']; ?>&nbsp; </td>
+      <td><?php echo $row_persoane['denumire']; ?>&nbsp; </td>
       <td><?php
 	  if ($row_persoane['utilizator'] != NULL)
    {?>
-   <?php echo $row_persoane['utilizator']; ?><a href="utilizatori_detalii.php?recordID=<?php echo $row_persoane['cod_pers']; ?>"><img src="/CRM/css/pic/Grid/modifica.png" alt="Modifica" width="24" height="24" /></a>
+   <?php echo $row_persoane['utilizator']; ?>
   <?php }
  else
   {?>
-   <?php echo $row_persoane['utilizator']; ?><a href="utilizatori_detalii.php?recordID=<?php echo $row_persoane['cod_pers']; ?>"><img src="/CRM/css/pic/Grid/modifica.png" alt="Modifica" width="24" height="24" /></a>
+   <?php echo " - " ?>
   <?php }
 	  
  ?>	
-      <td><?php echo $row_persoane['denumire']; ?>&nbsp; </td>
-      <td></td>
+      <td><?php
+	  if ($row_persoane['utilizator'] != NULL)
+   {?>
+   <a href="utilizatori_detalii.php?recordID=<?php echo $row_persoane['cod_pers']; ?>"><img src="/CRM/css/pic/Grid/modifica_user.png" alt="Modifica utilizator" width="24" height="24" /></a> <a href="utilizatori_sterge.php?recordID=<?php echo $row_persoane['cod_pers']; ?>"><img src="/CRM/css/pic/Grid/sterge_user.png" alt="Sterge utilizator" width="24" height="24" /></a>
+  <?php }
+ else
+  {?>
+   <a href="utilizatori_adauga.php?recordID=<?php echo $row_persoane['cod_pers']; ?>"><img src="/CRM/css/pic/Grid/adauga_user.png" alt="Adauga utilizator" width="24" height="24" /></a>
+  <?php }
+	  
+ ?>	</td>
 	  
 
 
